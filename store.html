@@ -26,10 +26,7 @@ body {
   box-shadow: 0 2px 20px rgba(59,130,246,0.3);
 }
 
-.logo {
-  font-weight: 600;
-}
-
+/* CONTAINER */
 .container {
   padding: 20px;
   text-align: center;
@@ -39,31 +36,54 @@ body {
 .card {
   background: linear-gradient(145deg, rgba(10,20,45,0.95), rgba(5,8,20,0.95));
   border-radius: 20px;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 420px;
+  padding: 25px;
+  margin: 25px auto;
+  max-width: 400px;
   border: 1px solid rgba(59,130,246,0.3);
   box-shadow: 0 0 30px rgba(59,130,246,0.3),
               inset 0 0 25px rgba(0,0,0,0.8);
+  text-align: center;
+}
+
+/* LOGO */
+.rank-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 15px rgba(59,130,246,0.6);
+}
+
+/* BADGE */
+.badge {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  background: rgba(59,130,246,0.2);
+  border: 1px solid rgba(59,130,246,0.4);
+}
+
+/* FEATURE CARD */
+.features {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.3);
+  display: none;
   text-align: left;
 }
 
-/* FEATURES COLLAPSE */
-.features {
-  max-height: 0;
-  overflow: hidden;
-  transition: 0.3s ease;
-}
-
 .features.open {
-  max-height: 500px;
+  display: block;
 }
 
+/* TOGGLE */
 .toggle {
   color: #60a5fa;
   cursor: pointer;
   margin-top: 10px;
-  display: inline-block;
   font-size: 14px;
 }
 
@@ -76,7 +96,6 @@ body {
   background: linear-gradient(45deg,#3b82f6,#60a5fa);
   color: white;
   text-decoration: none;
-  text-align: center;
   font-weight: 600;
 }
 </style>
@@ -88,11 +107,8 @@ body {
 <div class="navbar">
   <div style="display:flex; align-items:center; gap:10px;">
     <img src="https://res.cloudinary.com/dyvfslvvh/image/upload/v1776409842/KewerSMP_SEASON_9__120363303029932613_g.us_20260417-140644_lkv37z.jpg"
-    style="width:40px;height:40px;border-radius:10px;box-shadow:0 0 15px rgba(59,130,246,0.8);">
-
-    <div class="logo">
-      Kewer<span style="color:#3b82f6;">SMP</span>
-    </div>
+    style="width:40px;height:40px;border-radius:10px;">
+    <div>Kewer<span style="color:#3b82f6;">SMP</span></div>
   </div>
 
   <div><a href="index.html" style="color:white;">🏠</a></div>
@@ -105,7 +121,10 @@ body {
 
 <!-- VIP -->
 <div class="card">
-<h2>VIP - Rp15.000</h2>
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="rank-logo">
+<h2>VIP</h2>
+<div class="badge">Trial 30 Hari</div>
+
 <div class="toggle" onclick="toggleFeature('vip')">See Features</div>
 <div class="features" id="vip">
 <ul>
@@ -116,12 +135,16 @@ body {
 <li>/feed, /nick</li>
 </ul>
 </div>
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20VIP%20seharga%20Rp%2015.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli</a>
+
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20VIP%20seharga%20Rp%2015.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli - Rp15.000</a>
 </div>
 
 <!-- PRO -->
 <div class="card">
-<h2>PRO - Rp25.000</h2>
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135673.png" class="rank-logo">
+<h2>PRO</h2>
+<div class="badge">Trial 30 Hari</div>
+
 <div class="toggle" onclick="toggleFeature('pro')">See Features</div>
 <div class="features" id="pro">
 <ul>
@@ -132,12 +155,16 @@ body {
 <li>+ fitur VIP</li>
 </ul>
 </div>
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20PRO%20seharga%20Rp%2025.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli</a>
+
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20PRO%20seharga%20Rp%2025.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli - Rp25.000</a>
 </div>
 
 <!-- DESERT -->
 <div class="card">
-<h2>DESERT - Rp50.000</h2>
+<img src="https://cdn-icons-png.flaticon.com/512/616/616490.png" class="rank-logo">
+<h2>DESERT</h2>
+<div class="badge">Trial 30 Hari</div>
+
 <div class="toggle" onclick="toggleFeature('desert')">See Features</div>
 <div class="features" id="desert">
 <ul>
@@ -148,12 +175,16 @@ body {
 <li>+ fitur PRO</li>
 </ul>
 </div>
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20DESERT%20seharga%20Rp%2050.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli</a>
+
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20DESERT%20seharga%20Rp%2050.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli - Rp50.000</a>
 </div>
 
 <!-- LEGEND -->
 <div class="card">
-<h2>LEGEND - Rp90.000</h2>
+<img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" class="rank-logo">
+<h2>LEGEND</h2>
+<div class="badge">Trial 30 Hari</div>
+
 <div class="toggle" onclick="toggleFeature('legend')">See Features</div>
 <div class="features" id="legend">
 <ul>
@@ -164,12 +195,16 @@ body {
 <li>+ fitur DESERT</li>
 </ul>
 </div>
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20LEGEND%20seharga%20Rp%2090.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli</a>
+
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20LEGEND%20seharga%20Rp%2090.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli - Rp90.000</a>
 </div>
 
 <!-- CACTUS -->
 <div class="card">
-<h2>CACTUS - Rp120.000</h2>
+<img src="https://cdn-icons-png.flaticon.com/512/2909/2909762.png" class="rank-logo">
+<h2>CACTUS</h2>
+<div class="badge">Trial 30 Hari</div>
+
 <div class="toggle" onclick="toggleFeature('cactus')">See Features</div>
 <div class="features" id="cactus">
 <ul>
@@ -179,12 +214,16 @@ body {
 <li>+ fitur LEGEND</li>
 </ul>
 </div>
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20CACTUS%20seharga%20Rp%20120.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli</a>
+
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20CACTUS%20seharga%20Rp%20120.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli - Rp120.000</a>
 </div>
 
 <!-- MASTER -->
 <div class="card">
-<h2>MASTER - Rp150.000</h2>
+<img src="https://cdn-icons-png.flaticon.com/512/190/190406.png" class="rank-logo">
+<h2>MASTER</h2>
+<div class="badge">Permanent</div>
+
 <div class="toggle" onclick="toggleFeature('master')">See Features</div>
 <div class="features" id="master">
 <ul>
@@ -194,12 +233,16 @@ body {
 <li>+ fitur CACTUS</li>
 </ul>
 </div>
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20MASTER%20seharga%20Rp%20150.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli</a>
+
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20MASTER%20seharga%20Rp%20150.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli - Rp150.000</a>
 </div>
 
 <!-- KING -->
 <div class="card">
-<h2>KING & QUEEN - Rp450.000</h2>
+<img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="rank-logo">
+<h2>KING & QUEEN</h2>
+<div class="badge">Permanent</div>
+
 <div class="toggle" onclick="toggleFeature('king')">See Features</div>
 <div class="features" id="king">
 <ul>
@@ -209,7 +252,8 @@ body {
 <li>+ fitur MASTER</li>
 </ul>
 </div>
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20KING%20%26%20QUEEN%20seharga%20Rp%20450.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli</a>
+
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20KING%20%26%20QUEEN%20seharga%20Rp%20450.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli - Rp450.000</a>
 </div>
 
 </div>
