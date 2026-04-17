@@ -15,7 +15,7 @@ body {
   background: radial-gradient(circle at center, #0b1f4b 0%, #040712 75%);
 }
 
-/* NAVBAR SAMA PERSIS */
+/* NAVBAR */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -46,18 +46,28 @@ body {
   box-shadow: 0 0 30px rgba(59,130,246,0.3),
               inset 0 0 25px rgba(0,0,0,0.8);
   text-align: left;
-  transition: 0.3s;
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 50px rgba(59,130,246,0.5);
+/* FEATURES COLLAPSE */
+.features {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s ease;
 }
 
-ul {
-  padding-left: 18px;
+.features.open {
+  max-height: 500px;
 }
 
+.toggle {
+  color: #60a5fa;
+  cursor: pointer;
+  margin-top: 10px;
+  display: inline-block;
+  font-size: 14px;
+}
+
+/* BUTTON */
 .btn {
   display: block;
   margin-top: 15px;
@@ -68,10 +78,6 @@ ul {
   text-decoration: none;
   text-align: center;
   font-weight: 600;
-}
-
-.btn:hover {
-  filter: brightness(1.2);
 }
 </style>
 </head>
@@ -85,7 +91,7 @@ ul {
     style="width:40px;height:40px;border-radius:10px;box-shadow:0 0 15px rgba(59,130,246,0.8);">
 
     <div class="logo">
-      Kewer<span style="color:#3b82f6; text-shadow:0 0 10px rgba(59,130,246,0.8);">SMP</span>
+      Kewer<span style="color:#3b82f6;">SMP</span>
     </div>
   </div>
 
@@ -99,7 +105,9 @@ ul {
 
 <!-- VIP -->
 <div class="card">
-<h2>VIP - Rp15.000 (1 bulan)</h2>
+<h2>VIP - Rp15.000</h2>
+<div class="toggle" onclick="toggleFeature('vip')">See Features</div>
+<div class="features" id="vip">
 <ul>
 <li>3x Limit Claim</li>
 <li>6000 Limit Block</li>
@@ -107,12 +115,15 @@ ul {
 <li>premium daily reward</li>
 <li>/feed, /nick</li>
 </ul>
-<a href="https://wa.me/6289673735976?text=Saya mau beli VIP Rp15000" class="btn">Beli</a>
+</div>
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20VIP%20seharga%20Rp%2015.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli</a>
 </div>
 
 <!-- PRO -->
 <div class="card">
-<h2>PRO - Rp25.000 (1 bulan)</h2>
+<h2>PRO - Rp25.000</h2>
+<div class="toggle" onclick="toggleFeature('pro')">See Features</div>
+<div class="features" id="pro">
 <ul>
 <li>8x Limit Claim</li>
 <li>8000 Limit Block</li>
@@ -120,12 +131,15 @@ ul {
 <li>/heal, /repair</li>
 <li>+ fitur VIP</li>
 </ul>
-<a href="https://wa.me/6289673735976?text=Saya mau beli PRO Rp25000" class="btn">Beli</a>
+</div>
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20PRO%20seharga%20Rp%2025.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli</a>
 </div>
 
 <!-- DESERT -->
 <div class="card">
-<h2>DESERT - Rp50.000 (1 bulan)</h2>
+<h2>DESERT - Rp50.000</h2>
+<div class="toggle" onclick="toggleFeature('desert')">See Features</div>
+<div class="features" id="desert">
 <ul>
 <li>10000 Limit Block</li>
 <li>20× sethome</li>
@@ -133,12 +147,15 @@ ul {
 <li>/fireball</li>
 <li>+ fitur PRO</li>
 </ul>
-<a href="https://wa.me/6289673735976?text=Saya mau beli DESERT Rp50000" class="btn">Beli</a>
+</div>
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20DESERT%20seharga%20Rp%2050.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli</a>
 </div>
 
 <!-- LEGEND -->
 <div class="card">
-<h2>LEGEND - Rp90.000 (1 bulan)</h2>
+<h2>LEGEND - Rp90.000</h2>
+<div class="toggle" onclick="toggleFeature('legend')">See Features</div>
+<div class="features" id="legend">
 <ul>
 <li>50000 Limit Block</li>
 <li>25× sethome</li>
@@ -146,46 +163,62 @@ ul {
 <li>/fly, /jump</li>
 <li>+ fitur DESERT</li>
 </ul>
-<a href="https://wa.me/6289673735976?text=Saya mau beli LEGEND Rp90000" class="btn">Beli</a>
+</div>
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20LEGEND%20seharga%20Rp%2090.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli</a>
 </div>
 
 <!-- CACTUS -->
 <div class="card">
-<h2>CACTUS - Rp120.000 (1 bulan)</h2>
+<h2>CACTUS - Rp120.000</h2>
+<div class="toggle" onclick="toggleFeature('cactus')">See Features</div>
+<div class="features" id="cactus">
 <ul>
 <li>Unlimited Claim & Block</li>
 <li>30× sethome</li>
 <li>All cosmetics</li>
 <li>+ fitur LEGEND</li>
 </ul>
-<a href="https://wa.me/6289673735976?text=Saya mau beli CACTUS Rp120000" class="btn">Beli</a>
+</div>
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20CACTUS%20seharga%20Rp%20120.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli</a>
 </div>
 
 <!-- MASTER -->
 <div class="card">
-<h2>MASTER - Rp150.000 (Permanent)</h2>
+<h2>MASTER - Rp150.000</h2>
+<div class="toggle" onclick="toggleFeature('master')">See Features</div>
+<div class="features" id="master">
 <ul>
 <li>Unlimited Claim & Block</li>
 <li>50× sethome</li>
 <li>/ptime, /tp</li>
 <li>+ fitur CACTUS</li>
 </ul>
-<a href="https://wa.me/6289673735976?text=Saya mau beli MASTER Rp150000" class="btn">Beli</a>
+</div>
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20MASTER%20seharga%20Rp%20150.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli</a>
 </div>
 
 <!-- KING -->
 <div class="card">
-<h2>KING & QUEEN - Rp450.000 (Permanent)</h2>
+<h2>KING & QUEEN - Rp450.000</h2>
+<div class="toggle" onclick="toggleFeature('king')">See Features</div>
+<div class="features" id="king">
 <ul>
 <li>Unlimited Everything</li>
 <li>All cosmetics</li>
 <li>/god</li>
 <li>+ fitur MASTER</li>
 </ul>
-<a href="https://wa.me/6289673735976?text=Saya mau beli KING & QUEEN Rp450000" class="btn">Beli</a>
+</div>
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20KING%20%26%20QUEEN%20seharga%20Rp%20450.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli</a>
 </div>
 
 </div>
+
+<script>
+function toggleFeature(id) {
+  document.getElementById(id).classList.toggle("open");
+}
+</script>
 
 </body>
 </html>
