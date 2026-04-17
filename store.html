@@ -63,89 +63,80 @@ body {
   font-weight: 600;
 }
 
-/* TOGGLE */
-.toggle {
+/* TOGGLE ROW */
+.toggle-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
   margin-top: 10px;
-  color: #9ca3af;
-  cursor: pointer;
-  font-size: 14px;
 }
 
-/* MODAL */
+/* BUTTON STYLE */
+.toggle-btn {
+  background: rgba(59,130,246,0.2);
+  border: 1px solid rgba(59,130,246,0.4);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* MODAL BACKDROP */
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
+  inset: 0;
+  background: rgba(0,0,0,0.65);
   display: none;
   justify-content: center;
   align-items: center;
+  padding: 20px;
   z-index: 999;
 }
 
-/* KERTAS STYLE */
+/* MODAL CONTENT */
 .modal-content {
-  position: relative;
-  width: 90%;
-  max-width: 340px;
-  padding: 20px 20px 20px 40px;
-  border-radius: 12px;
-
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.05) 0px,
-      rgba(255,255,255,0.05) 1px,
-      transparent 1px,
-      transparent 28px
-    ),
-    #0a0f25;
-
+  width: 100%;
+  max-width: 380px;
+  border-radius: 16px;
+  padding: 20px;
+  background: #0a0f25;
   border: 1px solid rgba(59,130,246,0.4);
-  box-shadow: 0 0 40px rgba(59,130,246,0.4);
+  box-shadow: 0 0 30px rgba(59,130,246,0.3);
 }
 
-/* GARIS MERAH */
-.modal-content::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 25px;
-  width: 2px;
-  height: 100%;
-  background: rgba(239,68,68,0.5);
-}
-
-/* TEXT */
+/* TITLE */
 .modal h2 {
   margin: 0;
 }
 
 .modal h3 {
-  margin: 5px 0 10px;
+  margin: 5px 0 15px;
   color: #60a5fa;
 }
 
-/* LIST */
-.modal ul {
-  list-style: none;
-  padding: 0;
+/* FEATURE GRID */
+.feature-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.modal li {
-  margin-bottom: 6px;
-}
-
-.modal li::before {
-  content: "• ";
-  color: #3b82f6;
+/* FEATURE ITEM */
+.feature-item {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 12px;
 }
 
 /* CLOSE */
 .close {
-  margin-top: 10px;
+  margin-top: 15px;
   text-align: right;
   cursor: pointer;
   color: #60a5fa;
@@ -169,55 +160,123 @@ body {
 <div class="container">
 <h1>STORE</h1>
 
-<!-- CARD TEMPLATE (ULANG SEMUA RANK) -->
-
+<!-- VIP -->
 <div class="card">
 <h2>VIP</h2>
 <div class="badge">Trial 30 Hari</div>
-<div class="toggle" onclick="openModal('VIP', ['3x Limit Claim','6000 Limit Block','5× sethome','premium daily reward','/feed','/nick'])">See Features</div>
+
+<div class="toggle-row">
+  <div class="toggle-btn" onclick="openModal('VIP', ['3x Limit Claim','6000 Limit Block','5× sethome','premium daily reward','/feed','/nick'])">
+    See Features
+  </div>
+  <div class="toggle-btn" onclick="openModal('VIP', ['3x Limit Claim','6000 Limit Block','5× sethome','premium daily reward','/feed','/nick'])">
+    ☰
+  </div>
+</div>
+
 <a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20VIP%20seharga%20Rp%2015.000.%20Bagaimana%20cara%20pembayarannya?" class="price">Rp15.000</a>
 </div>
 
+<!-- PRO -->
 <div class="card">
 <h2>PRO</h2>
 <div class="badge">Trial 30 Hari</div>
-<div class="toggle" onclick="openModal('PRO', ['8x Limit Claim','8000 Limit Block','10× sethome','/heal','/repair'])">See Features</div>
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20PRO%20seharga%20Rp%2025.000.%20Bagaimana%20cara%20pembayarannya?" class="price">Rp25.000</a>
+
+<div class="toggle-row">
+  <div class="toggle-btn" onclick="openModal('PRO', ['8x Limit Claim','8000 Limit Block','10× sethome','/heal','/repair'])">
+    See Features
+  </div>
+  <div class="toggle-btn" onclick="openModal('PRO', ['8x Limit Claim','8000 Limit Block','10× sethome','/heal','/repair'])">
+    ☰
+  </div>
 </div>
 
+<a href="#" class="price">Rp25.000</a>
+</div>
+
+<!-- DESERT -->
 <div class="card">
 <h2>DESERT</h2>
 <div class="badge">Trial 30 Hari</div>
-<div class="toggle" onclick="openModal('DESERT', ['10000 Limit Block','20× sethome','/fireball','Cosmetics'])">See Features</div>
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20DESERT%20seharga%20Rp%2050.000.%20Bagaimana%20cara%20pembayarannya?" class="price">Rp50.000</a>
+
+<div class="toggle-row">
+  <div class="toggle-btn" onclick="openModal('DESERT', ['10000 Limit Block','20× sethome','/fireball','Cosmetics'])">
+    See Features
+  </div>
+  <div class="toggle-btn" onclick="openModal('DESERT', ['10000 Limit Block','20× sethome','/fireball','Cosmetics'])">
+    ☰
+  </div>
 </div>
 
+<a href="#" class="price">Rp50.000</a>
+</div>
+
+<!-- LEGEND -->
 <div class="card">
 <h2>LEGEND</h2>
 <div class="badge">Trial 30 Hari</div>
-<div class="toggle" onclick="openModal('LEGEND', ['50000 Limit Block','25× sethome','/fly','/jump'])">See Features</div>
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20LEGEND%20seharga%20Rp%2090.000.%20Bagaimana%20cara%20pembayarannya?" class="price">Rp90.000</a>
+
+<div class="toggle-row">
+  <div class="toggle-btn" onclick="openModal('LEGEND', ['50000 Limit Block','25× sethome','/fly','/jump'])">
+    See Features
+  </div>
+  <div class="toggle-btn" onclick="openModal('LEGEND', ['50000 Limit Block','25× sethome','/fly','/jump'])">
+    ☰
+  </div>
 </div>
 
+<a href="#" class="price">Rp90.000</a>
+</div>
+
+<!-- CACTUS -->
 <div class="card">
 <h2>CACTUS</h2>
 <div class="badge">Trial 30 Hari</div>
-<div class="toggle" onclick="openModal('CACTUS', ['Unlimited Claim','30× sethome','All cosmetics'])">See Features</div>
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20CACTUS%20seharga%20Rp%20120.000.%20Bagaimana%20cara%20pembayarannya?" class="price">Rp120.000</a>
+
+<div class="toggle-row">
+  <div class="toggle-btn" onclick="openModal('CACTUS', ['Unlimited Claim','30× sethome','All cosmetics'])">
+    See Features
+  </div>
+  <div class="toggle-btn" onclick="openModal('CACTUS', ['Unlimited Claim','30× sethome','All cosmetics'])">
+    ☰
+  </div>
 </div>
 
+<a href="#" class="price">Rp120.000</a>
+</div>
+
+<!-- MASTER -->
 <div class="card">
 <h2>MASTER</h2>
 <div class="badge">Permanent</div>
-<div class="toggle" onclick="openModal('MASTER', ['Unlimited Claim','50× sethome','/ptime','/tp'])">See Features</div>
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20MASTER%20seharga%20Rp%20150.000.%20Bagaimana%20cara%20pembayarannya?" class="price">Rp150.000</a>
+
+<div class="toggle-row">
+  <div class="toggle-btn" onclick="openModal('MASTER', ['Unlimited Claim','50× sethome','/ptime','/tp'])">
+    See Features
+  </div>
+  <div class="toggle-btn" onclick="openModal('MASTER', ['Unlimited Claim','50× sethome','/ptime','/tp'])">
+    ☰
+  </div>
 </div>
 
+<a href="#" class="price">Rp150.000</a>
+</div>
+
+<!-- KING & QUEEN -->
 <div class="card">
 <h2>KING & QUEEN</h2>
 <div class="badge">Permanent</div>
-<div class="toggle" onclick="openModal('KING & QUEEN', ['Unlimited Everything','/god','All cosmetics'])">See Features</div>
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20KING%20%26%20QUEEN%20seharga%20Rp%20450.000.%20Bagaimana%20cara%20pembayarannya?" class="price">Rp450.000</a>
+
+<div class="toggle-row">
+  <div class="toggle-btn" onclick="openModal('KING & QUEEN', ['Unlimited Everything','/god','All cosmetics'])">
+    See Features
+  </div>
+  <div class="toggle-btn" onclick="openModal('KING & QUEEN', ['Unlimited Everything','/god','All cosmetics'])">
+    ☰
+  </div>
+</div>
+
+<a href="#" class="price">Rp450.000</a>
 </div>
 
 </div>
@@ -227,7 +286,7 @@ body {
   <div class="modal-content">
     <h2>Rank Benefits</h2>
     <h3 id="modalTitle"></h3>
-    <ul id="modalList"></ul>
+    <div class="feature-grid" id="modalList"></div>
     <div class="close" onclick="closeModal()">Tutup</div>
   </div>
 </div>
@@ -235,13 +294,17 @@ body {
 <script>
 function openModal(rank, features) {
   document.getElementById("modalTitle").innerText = rank;
+
   let list = document.getElementById("modalList");
   list.innerHTML = "";
+
   features.forEach(f => {
-    let li = document.createElement("li");
-    li.innerText = f;
-    list.appendChild(li);
+    let div = document.createElement("div");
+    div.className = "feature-item";
+    div.innerText = f;
+    list.appendChild(div);
   });
+
   document.getElementById("modal").style.display = "flex";
 }
 
