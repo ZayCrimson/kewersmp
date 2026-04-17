@@ -12,7 +12,7 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   color: white;
-  background: radial-gradient(circle at center, #0b1a3a 0%, #050814 70%);
+  background: radial-gradient(circle at center, #0b1f4b 0%, #040712 75%);
   overflow-x: hidden;
 }
 
@@ -29,15 +29,15 @@ body::before {
   z-index: -3;
 }
 
-/* NEON GLOW */
+/* GLOW */
 body::after {
   content: "";
   position: fixed;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(59,130,246,0.6), transparent 70%);
-  filter: blur(120px);
-  top: 30%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59,130,246,0.7), transparent 70%);
+  filter: blur(140px);
+  top: 25%;
   left: 50%;
   transform: translateX(-50%);
   z-index: -2;
@@ -48,6 +48,10 @@ body::after {
   display: flex;
   justify-content: space-between;
   padding: 15px 20px;
+  border-bottom: 1px solid rgba(59,130,246,0.4);
+  background: rgba(5,10,25,0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(59,130,246,0.3);
 }
 
 .logo {
@@ -62,8 +66,7 @@ body::after {
 
 h1 {
   font-size: 36px;
-  margin-top: 30px;
-  text-shadow: 0 0 25px rgba(59,130,246,0.7);
+  text-shadow: 0 0 30px rgba(59,130,246,0.9);
 }
 
 p {
@@ -72,37 +75,22 @@ p {
 
 /* CARD */
 .card {
-  background: rgba(255,255,255,0.04);
+  background: linear-gradient(145deg, rgba(10,20,45,0.95), rgba(5,8,20,0.95));
   border-radius: 20px;
   padding: 20px;
   margin: 20px auto;
   max-width: 400px;
-  backdrop-filter: blur(12px);
   border: 1px solid rgba(59,130,246,0.3);
-  box-shadow: 
-    0 0 20px rgba(59,130,246,0.2),
-    0 0 60px rgba(59,130,246,0.1);
+  box-shadow: 0 0 30px rgba(59,130,246,0.3),
+              inset 0 0 25px rgba(0,0,0,0.8);
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 
-    0 0 30px rgba(59,130,246,0.4),
-    0 0 80px rgba(59,130,246,0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 0 60px rgba(59,130,246,0.5);
 }
-
-/* LABEL */
-.label {
-  display: inline-block;
-  padding: 6px 15px;
-  border-radius: 10px;
-  font-size: 12px;
-  margin-bottom: 10px;
-}
-
-.java { background: #2563eb; }
-.bedrock { background: #1d4ed8; }
 
 /* STATUS */
 .status {
@@ -114,7 +102,6 @@ p {
   padding: 15px;
   border-radius: 15px;
   background: rgba(255,255,255,0.05);
-  width: fit-content;
 }
 
 .dot {
@@ -122,6 +109,7 @@ p {
   height: 10px;
   background: #22c55e;
   border-radius: 50%;
+  box-shadow: 0 0 10px #22c55e;
 }
 
 /* BUTTON */
@@ -135,21 +123,14 @@ p {
   font-weight: 600;
   text-decoration: none;
   color: white;
+  background: linear-gradient(45deg,#3b82f6,#60a5fa);
   transition: 0.3s;
 }
 
 .btn:hover {
   transform: scale(1.05);
-  box-shadow: 
-    0 0 15px rgba(59,130,246,0.5),
-    0 0 40px rgba(59,130,246,0.3);
+  box-shadow: 0 0 40px rgba(59,130,246,0.5);
 }
-
-.vote { background: linear-gradient(45deg, #3b82f6, #60a5fa); }
-.wa { background: #22c55e; }
-.dc { background: #5865F2; }
-.tt { background: #111; }
-.sa { background: linear-gradient(45deg, #f59e0b, #f97316); }
 
 /* TOAST */
 .toast {
@@ -172,45 +153,38 @@ p {
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
   <div style="display:flex; align-items:center; gap:10px;">
     <img src="https://res.cloudinary.com/dyvfslvvh/image/upload/v1776409842/KewerSMP_SEASON_9__120363303029932613_g.us_20260417-140644_lkv37z.jpg"
-    style="width:40px; height:40px; border-radius:10px; box-shadow:0 0 10px rgba(59,130,246,0.6);">
+    style="width:40px;height:40px;border-radius:10px;box-shadow:0 0 15px rgba(59,130,246,0.8);">
 
-    <div class="logo">KewerSMP</div>
+    <div class="logo">
+      Kewer<span style="color:#3b82f6; text-shadow:0 0 10px rgba(59,130,246,0.8);">SMP</span>
+    </div>
   </div>
 
-  <div>☰</div>
+  <div><a href="store.html" style="color:white;">🛒</a></div>
 </div>
 
 <div class="container">
 
-  <h1>WELCOME TO<br>KewerSMP</h1>
-  <p>Server Minecraft Indonesia</p>
+<h1>WELCOME TO KewerSMP</h1>
+<p>Jelajahi server survival economy dengan komunitas yang solid</p>
 
-  <div class="card" onclick="copyIP()">
-    <div class="label java">JAVA EDITION</div>
-    <h2>kewersmp.fun</h2>
-    <p>Tap untuk copy IP 🚀</p>
-  </div>
+<div class="card" onclick="copyIP()">
+  <h2>kewersmp.fun</h2>
+  <p>Tap untuk copy IP 🚀</p>
+</div>
 
-  <div class="card">
-    <div class="label bedrock">BEDROCK EDITION</div>
-    <h2>kewersmp.fun</h2>
-    <p>Port: 19132</p>
-  </div>
+<div class="status">
+  <div class="dot"></div>
+  <span id="statusText">CHECKING...</span>
+</div>
 
-  <div class="status">
-    <div class="dot"></div>
-    <span id="statusText">CHECKING...</span>
-  </div>
-
-  <a href="https://minecraft-mp.com/server/356237/vote/" target="_blank" class="btn vote">⭐ VOTE SERVER</a>
-  <a href="https://chat.whatsapp.com/GXGocvwkO3I1cktvxT7nxT?mode=gi_t" target="_blank" class="btn wa">📱 WHATSAPP</a>
-  <a href="https://discord.gg/mYxE2FFpX" target="_blank" class="btn dc">💬 DISCORD</a>
-  <a href="https://www.tiktok.com/@kewersmp?_r=1&_t=ZS-95bhMGM5F6V" target="_blank" class="btn tt">🎵 TIKTOK</a>
-  <a href="#" class="btn sa">💰 SAWERIA</a>
+<a href="https://minecraft-mp.com/server/356237/vote/" class="btn">⭐ VOTE</a>
+<a href="https://chat.whatsapp.com/GXGocvwkO3I1cktvxT7nxT?mode=gi_t" class="btn">📱 WHATSAPP</a>
+<a href="https://discord.gg/mYxE2FFpX" class="btn">💬 DISCORD</a>
+<a href="https://www.tiktok.com/@kewersmp" class="btn">🎵 TIKTOK</a>
 
 </div>
 
