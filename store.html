@@ -63,7 +63,7 @@ body {
   font-weight: 600;
 }
 
-/* TOGGLE ROW */
+/* TOGGLE */
 .toggle-row {
   display: flex;
   justify-content: center;
@@ -71,7 +71,6 @@ body {
   margin-top: 10px;
 }
 
-/* BUTTON STYLE */
 .toggle-btn {
   background: rgba(59,130,246,0.2);
   border: 1px solid rgba(59,130,246,0.4);
@@ -85,7 +84,7 @@ body {
   gap: 6px;
 }
 
-/* MODAL BACKDROP */
+/* MODAL */
 .modal {
   position: fixed;
   inset: 0;
@@ -97,7 +96,6 @@ body {
   z-index: 999;
 }
 
-/* MODAL CONTENT */
 .modal-content {
   width: 100%;
   max-width: 380px;
@@ -108,24 +106,15 @@ body {
   box-shadow: 0 0 30px rgba(59,130,246,0.3);
 }
 
-/* TITLE */
-.modal h2 {
-  margin: 0;
-}
+.modal h2 { margin: 0; }
+.modal h3 { margin: 5px 0 15px; color: #60a5fa; }
 
-.modal h3 {
-  margin: 5px 0 15px;
-  color: #60a5fa;
-}
-
-/* FEATURE GRID */
 .feature-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
-/* FEATURE ITEM */
 .feature-item {
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.08);
@@ -134,7 +123,6 @@ body {
   font-size: 12px;
 }
 
-/* CLOSE */
 .close {
   margin-top: 15px;
   text-align: right;
@@ -147,9 +135,8 @@ body {
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
-  <div style="display:flex; align-items:center; gap:10px;">
+  <div style="display:flex;align-items:center;gap:10px;">
     <img src="https://res.cloudinary.com/dyvfslvvh/image/upload/v1776409842/KewerSMP_SEASON_9__120363303029932613_g.us_20260417-140644_lkv37z.jpg"
     style="width:40px;height:40px;border-radius:10px;box-shadow:0 0 15px rgba(59,130,246,0.8);">
     <div>Kewer<span style="color:#3b82f6;">SMP</span></div>
@@ -166,15 +153,11 @@ body {
 <div class="badge">Trial 30 Hari</div>
 
 <div class="toggle-row">
-  <div class="toggle-btn" onclick="openModal('VIP', ['3x Limit Claim','6000 Limit Block','5× sethome','premium daily reward','/feed','/nick'])">
-    See Features
-  </div>
-  <div class="toggle-btn" onclick="openModal('VIP', ['3x Limit Claim','6000 Limit Block','5× sethome','premium daily reward','/feed','/nick'])">
-    ☰
-  </div>
+  <div class="toggle-btn" onclick="openModal('VIP', ['3x Limit Claim','6000 Limit Block','5× sethome','Premium daily reward','/feed','/nick'])">See Features</div>
+  <div class="toggle-btn">☰</div>
 </div>
 
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20VIP%20seharga%20Rp%2015.000.%20Bagaimana%20cara%20pembayarannya?" class="price">Rp15.000</a>
+<a class="price" href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20membeli%20VIP%20Rp15.000">Rp15.000</a>
 </div>
 
 <!-- PRO -->
@@ -183,15 +166,11 @@ body {
 <div class="badge">Trial 30 Hari</div>
 
 <div class="toggle-row">
-  <div class="toggle-btn" onclick="openModal('PRO', ['8x Limit Claim','8000 Limit Block','10× sethome','/heal','/repair'])">
-    See Features
-  </div>
-  <div class="toggle-btn" onclick="openModal('PRO', ['8x Limit Claim','8000 Limit Block','10× sethome','/heal','/repair'])">
-    ☰
-  </div>
+  <div class="toggle-btn" onclick="openModal('PRO', ['8x Limit Claim','8000 Limit Block','10× sethome','/heal','/repair'])">See Features</div>
+  <div class="toggle-btn">☰</div>
 </div>
 
-<a href="#" class="price">Rp25.000</a>
+<a class="price" href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20membeli%20PRO%20Rp25.000">Rp25.000</a>
 </div>
 
 <!-- DESERT -->
@@ -200,15 +179,11 @@ body {
 <div class="badge">Trial 30 Hari</div>
 
 <div class="toggle-row">
-  <div class="toggle-btn" onclick="openModal('DESERT', ['10000 Limit Block','20× sethome','/fireball','Cosmetics'])">
-    See Features
-  </div>
-  <div class="toggle-btn" onclick="openModal('DESERT', ['10000 Limit Block','20× sethome','/fireball','Cosmetics'])">
-    ☰
-  </div>
+  <div class="toggle-btn" onclick="openModal('DESERT', ['10000 Limit Block','20× sethome','/fireball','Cosmetics'])">See Features</div>
+  <div class="toggle-btn">☰</div>
 </div>
 
-<a href="#" class="price">Rp50.000</a>
+<a class="price" href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20membeli%20DESERT%20Rp50.000">Rp50.000</a>
 </div>
 
 <!-- LEGEND -->
@@ -217,15 +192,11 @@ body {
 <div class="badge">Trial 30 Hari</div>
 
 <div class="toggle-row">
-  <div class="toggle-btn" onclick="openModal('LEGEND', ['50000 Limit Block','25× sethome','/fly','/jump'])">
-    See Features
-  </div>
-  <div class="toggle-btn" onclick="openModal('LEGEND', ['50000 Limit Block','25× sethome','/fly','/jump'])">
-    ☰
-  </div>
+  <div class="toggle-btn" onclick="openModal('LEGEND', ['50000 Limit Block','25× sethome','/fly','/jump'])">See Features</div>
+  <div class="toggle-btn">☰</div>
 </div>
 
-<a href="#" class="price">Rp90.000</a>
+<a class="price" href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20membeli%20LEGEND%20Rp90.000">Rp90.000</a>
 </div>
 
 <!-- CACTUS -->
@@ -234,15 +205,11 @@ body {
 <div class="badge">Trial 30 Hari</div>
 
 <div class="toggle-row">
-  <div class="toggle-btn" onclick="openModal('CACTUS', ['Unlimited Claim','30× sethome','All cosmetics'])">
-    See Features
-  </div>
-  <div class="toggle-btn" onclick="openModal('CACTUS', ['Unlimited Claim','30× sethome','All cosmetics'])">
-    ☰
-  </div>
+  <div class="toggle-btn" onclick="openModal('CACTUS', ['Unlimited Claim','30× sethome','All cosmetics'])">See Features</div>
+  <div class="toggle-btn">☰</div>
 </div>
 
-<a href="#" class="price">Rp120.000</a>
+<a class="price" href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20membeli%20CACTUS%20Rp120.000">Rp120.000</a>
 </div>
 
 <!-- MASTER -->
@@ -251,15 +218,11 @@ body {
 <div class="badge">Permanent</div>
 
 <div class="toggle-row">
-  <div class="toggle-btn" onclick="openModal('MASTER', ['Unlimited Claim','50× sethome','/ptime','/tp'])">
-    See Features
-  </div>
-  <div class="toggle-btn" onclick="openModal('MASTER', ['Unlimited Claim','50× sethome','/ptime','/tp'])">
-    ☰
-  </div>
+  <div class="toggle-btn" onclick="openModal('MASTER', ['Unlimited Claim','50× sethome','/ptime','/tp'])">See Features</div>
+  <div class="toggle-btn">☰</div>
 </div>
 
-<a href="#" class="price">Rp150.000</a>
+<a class="price" href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20membeli%20MASTER%20Rp150.000">Rp150.000</a>
 </div>
 
 <!-- KING & QUEEN -->
@@ -268,15 +231,11 @@ body {
 <div class="badge">Permanent</div>
 
 <div class="toggle-row">
-  <div class="toggle-btn" onclick="openModal('KING & QUEEN', ['Unlimited Everything','/god','All cosmetics'])">
-    See Features
-  </div>
-  <div class="toggle-btn" onclick="openModal('KING & QUEEN', ['Unlimited Everything','/god','All cosmetics'])">
-    ☰
-  </div>
+  <div class="toggle-btn" onclick="openModal('KING & QUEEN', ['Unlimited Everything','/god','All cosmetics'])">See Features</div>
+  <div class="toggle-btn">☰</div>
 </div>
 
-<a href="#" class="price">Rp450.000</a>
+<a class="price" href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20membeli%20KING%20%26%20QUEEN%20Rp450.000">Rp450.000</a>
 </div>
 
 </div>
@@ -292,24 +251,20 @@ body {
 </div>
 
 <script>
-function openModal(rank, features) {
+function openModal(rank, features){
   document.getElementById("modalTitle").innerText = rank;
-
   let list = document.getElementById("modalList");
   list.innerHTML = "";
-
-  features.forEach(f => {
-    let div = document.createElement("div");
-    div.className = "feature-item";
-    div.innerText = f;
+  features.forEach(f=>{
+    let div=document.createElement("div");
+    div.className="feature-item";
+    div.innerText=f;
     list.appendChild(div);
   });
-
-  document.getElementById("modal").style.display = "flex";
+  document.getElementById("modal").style.display="flex";
 }
-
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
+function closeModal(){
+  document.getElementById("modal").style.display="none";
 }
 </script>
 
