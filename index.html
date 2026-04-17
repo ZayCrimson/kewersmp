@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KewerSMP</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  background: #0a0f1f;
+  overflow-x: hidden;
+}
+
+/* GRID */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -2;
+}
+
+/* GLOW */
+body::after {
+  content: "";
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background: #3b82f6;
+  filter: blur(150px);
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+
+.logo {
+  font-weight: 600;
+}
+
+.menu {
+  cursor: pointer;
+}
+
+/* CONTAINER */
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 34px;
+  margin-top: 30px;
+  animation: fade 1s ease;
+}
+
+p {
+  color: #9ca3af;
+}
+
+/* CARD */
+.card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 400px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 25px rgba(59,130,246,0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* LABEL */
+.label {
+  display: inline-block;
+  padding: 6px 15px;
+  border-radius: 10px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.java { background: #2563eb; }
+.bedrock { background: #1d4ed8; }
+
+/* STATUS */
+.status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.05);
+  width: fit-content;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #22c55e;
+  border-radius: 50%;
+}
+
+/* BUTTON */
+.btn {
+  display: block;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 300px;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.vote { background: linear-gradient(45deg, #3b82f6, #60a5fa); }
+.wa { background: #22c55e; }
+.dc { background: #5865F2; }
+.tt { background: #111; }
+.sa { background: linear-gradient(45deg, #f59e0b, #f97316); }
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e293b;
+  padding: 12px 20px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+/* ANIMATION */
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+  <div class="logo">KewerSMP</div>
+  <div class="menu">☰</div>
+</div>
+
+<div class="container">
+
+  <h1>WELCOME TO<br>KewerSMP</h1>
+  <p>Server Minecraft Indonesia</p>
+
+  <div class="card" onclick="copyIP()">
+    <div class="label java">JAVA EDITION</div>
+    <h2>kewersmp.fun</h2>
+    <p>Klik untuk copy IP</p>
+  </div>
+
+  <div class="card">
+    <div class="label bedrock">BEDROCK EDITION</div>
+    <h2>kewersmp.fun</h2>
+    <p>Port: 19132</p>
+  </div>
+
+  <div class="status">
+    <div class="dot"></div>
+    <span id="statusText">CHECKING...</span>
+  </div>
+
+  <a href="https://minecraft-mp.com/server/356237/vote/" target="_blank" class="btn vote">⭐ VOTE SERVER</a>
+
+  <a href="https://chat.whatsapp.com/GXGocvwkO3I1cktvxT7nxT?mode=gi_t" target="_blank" class="btn wa">📱 WHATSAPP</a>
+
+  <a href="https://discord.gg/mYxE2FFpX" target="_blank" class="btn dc">💬 DISCORD</a>
+
+  <a href="https://www.tiktok.com/@kewersmp?_r=1&_t=ZS-95bhMGM5F6V" target="_blank" class="btn tt">🎵 TIKTOK</a>
+
+  <a href="#" class="btn sa">💰 SAWERIA</a>
+
+</div>
+
+<div id="toast" class="toast">IP Copied!</div>
+
+<script>
+function copyIP() {
+  navigator.clipboard.writeText("kewersmp.fun");
+  let t = document.getElementById("toast");
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2000);
+}
+
+fetch("https://api.mcsrvstat.us/2/kewersmp.fun")
+.then(res => res.json())
+.then(data => {
+  if (data.online) {
+    document.getElementById("statusText").innerText =
+      "SERVER ONLINE - " + data.players.online + " PEMAIN";
+  } else {
+    document.getElementById("statusText").innerText = "SERVER OFFLINE";
+  }
+});
+</script>
+
+</body>
+</html>
