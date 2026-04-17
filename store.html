@@ -15,7 +15,7 @@ body {
   background: radial-gradient(circle at center, #0b1f4b 0%, #040712 75%);
 }
 
-/* NAVBAR (GLow sama kayak index) */
+/* NAVBAR (FIX + GLow + bold) */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -45,7 +45,14 @@ body {
               inset 0 0 25px rgba(0,0,0,0.8);
 }
 
-/* SOFT BUTTON */
+/* RANK TITLE BIGGER */
+.card h2 {
+  font-size: 26px;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+/* PRICE */
 .price {
   margin-top: 15px;
   padding: 12px;
@@ -58,7 +65,7 @@ body {
   cursor: pointer;
 }
 
-/* FEATURE BUTTON */
+/* BUTTON ROW */
 .btn-row {
   display: flex;
   justify-content: center;
@@ -85,7 +92,6 @@ body {
   font-weight: 600;
 }
 
-/* TRIAL */
 .badge.trial {
   background: rgba(59,130,246,0.2);
   border: 1px solid rgba(59,130,246,0.5);
@@ -93,7 +99,6 @@ body {
   box-shadow: 0 0 10px rgba(59,130,246,0.2);
 }
 
-/* PERMANENT */
 .badge.permanent {
   background: linear-gradient(45deg, #fbbf24, #f59e0b);
   border: 1px solid rgba(255, 200, 80, 0.6);
@@ -113,7 +118,6 @@ body {
   z-index: 999;
 }
 
-/* BOX */
 .box {
   width: 100%;
   max-width: 360px;
@@ -171,13 +175,35 @@ body {
 
 <body>
 
-<!-- NAVBAR -->
+<!-- NAVBAR (FIX ADD HOME BUTTON + GLOW NAME) -->
 <div class="navbar">
+
   <div style="display:flex;align-items:center;gap:10px;">
     <img src="https://res.cloudinary.com/dyvfslvvh/image/upload/v1776409842/KewerSMP_SEASON_9__120363303029932613_g.us_20260417-140644_lkv37z.jpg"
     style="width:40px;height:40px;border-radius:10px;box-shadow:0 0 15px rgba(59,130,246,0.8);">
-    <div>Kewer<span style="color:#3b82f6;">SMP</span></div>
+
+    <div style="
+      font-weight:700;
+      font-size:18px;
+      color:#fff;
+      text-shadow:0 0 10px rgba(59,130,246,0.8);
+    ">
+      Kewer<span style="color:#3b82f6;">SMP</span>
+    </div>
   </div>
+
+  <a href="index.html" style="
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    background:rgba(59,130,246,0.2);
+    padding:6px 10px;
+    border-radius:10px;
+    border:1px solid rgba(59,130,246,0.4);
+  ">
+    🏠
+  </a>
+
 </div>
 
 <div class="container">
@@ -278,9 +304,12 @@ body {
 <!-- FEATURE -->
 <div class="modal" id="featureModal">
   <div class="box">
+
     <h2 id="featTitle">Features</h2>
     <div id="featList" style="margin-top:10px;"></div>
+
     <div class="close" onclick="closeFeature()">Tutup</div>
+
   </div>
 </div>
 
