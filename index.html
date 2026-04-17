@@ -43,7 +43,7 @@ body::after {
   z-index: -2;
 }
 
-/* NAVBAR */
+/* NAVBAR (FIX SAMAIN DENGAN STORE) */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -51,11 +51,8 @@ body::after {
   border-bottom: 1px solid rgba(59,130,246,0.4);
   background: rgba(5,10,25,0.7);
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(59,130,246,0.3);
-}
-
-.logo {
-  font-weight: 600;
+  box-shadow: 0 2px 20px rgba(59,130,246,0.6),
+              0 0 25px rgba(59,130,246,0.4);
 }
 
 /* CONTAINER */
@@ -161,17 +158,37 @@ p {
 
 <body>
 
+<!-- NAVBAR (UPDATED ONLY HERE) -->
 <div class="navbar">
+
   <div style="display:flex; align-items:center; gap:10px;">
     <img src="https://res.cloudinary.com/dyvfslvvh/image/upload/v1776409842/KewerSMP_SEASON_9__120363303029932613_g.us_20260417-140644_lkv37z.jpg"
     style="width:40px;height:40px;border-radius:10px;box-shadow:0 0 15px rgba(59,130,246,0.8);">
 
-    <div class="logo">
-      Kewer<span style="color:#3b82f6; text-shadow:0 0 10px rgba(59,130,246,0.8);">SMP</span>
+    <div style="
+      font-weight:700;
+      font-size:18px;
+      color:#fff;
+      text-shadow:0 0 10px rgba(59,130,246,0.8);
+    ">
+      Kewer<span style="color:#3b82f6;">SMP</span>
     </div>
   </div>
 
-  <div><a href="store.html" style="color:white;">🛒</a></div>
+  <div>
+    <a href="store.html" style="
+      color:white;
+      text-decoration:none;
+      font-size:18px;
+      background:rgba(59,130,246,0.2);
+      padding:6px 10px;
+      border-radius:10px;
+      border:1px solid rgba(59,130,246,0.4);
+    ">
+      🛒
+    </a>
+  </div>
+
 </div>
 
 <div class="container">
