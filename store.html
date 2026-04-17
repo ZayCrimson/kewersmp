@@ -20,83 +20,92 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 15px 20px;
-  border-bottom: 1px solid rgba(59,130,246,0.4);
-  background: rgba(5,10,25,0.7);
+  border-bottom: 1px solid rgba(59,130,246,0.3);
+  background: rgba(5,10,25,0.5);
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(59,130,246,0.3);
 }
 
 /* CONTAINER */
 .container {
-  padding: 20px;
   text-align: center;
+  padding: 20px;
 }
 
-/* CARD */
+/* CARD TRANSPARAN */
 .card {
-  background: linear-gradient(145deg, rgba(10,20,45,0.95), rgba(5,8,20,0.95));
-  border-radius: 20px;
-  padding: 25px;
   margin: 25px auto;
-  max-width: 400px;
-  border: 1px solid rgba(59,130,246,0.3);
-  box-shadow: 0 0 30px rgba(59,130,246,0.3),
-              inset 0 0 25px rgba(0,0,0,0.8);
+  max-width: 350px;
+  padding: 20px;
   text-align: center;
+  backdrop-filter: blur(6px);
+  border-radius: 15px;
 }
 
 /* LOGO */
 .rank-logo {
   width: 50px;
   height: 50px;
-  border-radius: 12px;
   margin-bottom: 10px;
-  box-shadow: 0 0 15px rgba(59,130,246,0.6);
+  filter: brightness(0) invert(1); /* jadi putih dari hitam */
 }
 
 /* BADGE */
 .badge {
-  display: inline-block;
-  margin-top: 5px;
-  padding: 5px 10px;
-  border-radius: 10px;
   font-size: 12px;
-  background: rgba(59,130,246,0.2);
-  border: 1px solid rgba(59,130,246,0.4);
-}
-
-/* FEATURE CARD */
-.features {
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 12px;
-  background: rgba(0,0,0,0.3);
-  display: none;
-  text-align: left;
-}
-
-.features.open {
-  display: block;
-}
-
-/* TOGGLE */
-.toggle {
   color: #60a5fa;
-  cursor: pointer;
-  margin-top: 10px;
-  font-size: 14px;
+  margin-top: 5px;
 }
 
-/* BUTTON */
-.btn {
-  display: block;
+/* PRICE BUTTON */
+.price {
   margin-top: 15px;
   padding: 12px;
   border-radius: 10px;
-  background: linear-gradient(45deg,#3b82f6,#60a5fa);
-  color: white;
+  background: rgba(59,130,246,0.2);
+  border: 1px solid rgba(59,130,246,0.4);
+  color: #60a5fa;
   text-decoration: none;
-  font-weight: 600;
+  display: block;
+}
+
+/* SEE FEATURE */
+.toggle {
+  margin-top: 10px;
+  color: #9ca3af;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: rgba(10,20,45,0.95);
+  padding: 20px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 300px;
+  text-align: center;
+}
+
+.modal ul {
+  text-align: left;
+}
+
+.close {
+  margin-top: 10px;
+  color: #60a5fa;
+  cursor: pointer;
 }
 </style>
 </head>
@@ -105,19 +114,13 @@ body {
 
 <!-- NAVBAR -->
 <div class="navbar">
-  <div style="display:flex; align-items:center; gap:10px;">
-    <img src="https://res.cloudinary.com/dyvfslvvh/image/upload/v1776409842/KewerSMP_SEASON_9__120363303029932613_g.us_20260417-140644_lkv37z.jpg"
-    style="width:40px;height:40px;border-radius:10px;">
-    <div>Kewer<span style="color:#3b82f6;">SMP</span></div>
-  </div>
-
+  <div>Kewer<span style="color:#3b82f6;">SMP</span></div>
   <div><a href="index.html" style="color:white;">🏠</a></div>
 </div>
 
 <div class="container">
 
 <h1>STORE</h1>
-<p>Pilih rank favoritmu</p>
 
 <!-- VIP -->
 <div class="card">
@@ -125,18 +128,16 @@ body {
 <h2>VIP</h2>
 <div class="badge">Trial 30 Hari</div>
 
-<div class="toggle" onclick="toggleFeature('vip')">See Features</div>
-<div class="features" id="vip">
-<ul>
-<li>3x Limit Claim</li>
-<li>6000 Limit Block</li>
-<li>5× sethome</li>
-<li>premium daily reward</li>
-<li>/feed, /nick</li>
-</ul>
-</div>
+<div class="toggle" onclick="openModal('VIP', [
+'3x Limit Claim',
+'6000 Limit Block',
+'5× sethome',
+'premium daily reward',
+'/feed',
+'/nick'
+])">See Features</div>
 
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20VIP%20seharga%20Rp%2015.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli - Rp15.000</a>
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20VIP%20seharga%20Rp%2015.000.%20Bagaimana%20cara%20pembayarannya?" class="price">Rp15.000</a>
 </div>
 
 <!-- PRO -->
@@ -145,77 +146,15 @@ body {
 <h2>PRO</h2>
 <div class="badge">Trial 30 Hari</div>
 
-<div class="toggle" onclick="toggleFeature('pro')">See Features</div>
-<div class="features" id="pro">
-<ul>
-<li>8x Limit Claim</li>
-<li>8000 Limit Block</li>
-<li>10× sethome</li>
-<li>/heal, /repair</li>
-<li>+ fitur VIP</li>
-</ul>
-</div>
+<div class="toggle" onclick="openModal('PRO', [
+'8x Limit Claim',
+'8000 Limit Block',
+'10× sethome',
+'/heal',
+'/repair'
+])">See Features</div>
 
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20PRO%20seharga%20Rp%2025.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli - Rp25.000</a>
-</div>
-
-<!-- DESERT -->
-<div class="card">
-<img src="https://cdn-icons-png.flaticon.com/512/616/616490.png" class="rank-logo">
-<h2>DESERT</h2>
-<div class="badge">Trial 30 Hari</div>
-
-<div class="toggle" onclick="toggleFeature('desert')">See Features</div>
-<div class="features" id="desert">
-<ul>
-<li>10000 Limit Block</li>
-<li>20× sethome</li>
-<li>Cosmetics effect</li>
-<li>/fireball</li>
-<li>+ fitur PRO</li>
-</ul>
-</div>
-
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20DESERT%20seharga%20Rp%2050.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli - Rp50.000</a>
-</div>
-
-<!-- LEGEND -->
-<div class="card">
-<img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" class="rank-logo">
-<h2>LEGEND</h2>
-<div class="badge">Trial 30 Hari</div>
-
-<div class="toggle" onclick="toggleFeature('legend')">See Features</div>
-<div class="features" id="legend">
-<ul>
-<li>50000 Limit Block</li>
-<li>25× sethome</li>
-<li>Battlepass</li>
-<li>/fly, /jump</li>
-<li>+ fitur DESERT</li>
-</ul>
-</div>
-
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20LEGEND%20seharga%20Rp%2090.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli - Rp90.000</a>
-</div>
-
-<!-- CACTUS -->
-<div class="card">
-<img src="https://cdn-icons-png.flaticon.com/512/2909/2909762.png" class="rank-logo">
-<h2>CACTUS</h2>
-<div class="badge">Trial 30 Hari</div>
-
-<div class="toggle" onclick="toggleFeature('cactus')">See Features</div>
-<div class="features" id="cactus">
-<ul>
-<li>Unlimited Claim & Block</li>
-<li>30× sethome</li>
-<li>All cosmetics</li>
-<li>+ fitur LEGEND</li>
-</ul>
-</div>
-
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20CACTUS%20seharga%20Rp%20120.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli - Rp120.000</a>
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20PRO%20seharga%20Rp%2025.000.%20Bagaimana%20cara%20pembayarannya?" class="price">Rp25.000</a>
 </div>
 
 <!-- MASTER -->
@@ -224,43 +163,46 @@ body {
 <h2>MASTER</h2>
 <div class="badge">Permanent</div>
 
-<div class="toggle" onclick="toggleFeature('master')">See Features</div>
-<div class="features" id="master">
-<ul>
-<li>Unlimited Claim & Block</li>
-<li>50× sethome</li>
-<li>/ptime, /tp</li>
-<li>+ fitur CACTUS</li>
-</ul>
+<div class="toggle" onclick="openModal('MASTER', [
+'Unlimited Claim',
+'50× sethome',
+'/ptime',
+'/tp'
+])">See Features</div>
+
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20MASTER%20seharga%20Rp%20150.000.%20Bagaimana%20cara%20pembayarannya?" class="price">Rp150.000</a>
 </div>
 
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20MASTER%20seharga%20Rp%20150.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli - Rp150.000</a>
 </div>
 
-<!-- KING -->
-<div class="card">
-<img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="rank-logo">
-<h2>KING & QUEEN</h2>
-<div class="badge">Permanent</div>
-
-<div class="toggle" onclick="toggleFeature('king')">See Features</div>
-<div class="features" id="king">
-<ul>
-<li>Unlimited Everything</li>
-<li>All cosmetics</li>
-<li>/god</li>
-<li>+ fitur MASTER</li>
-</ul>
-</div>
-
-<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20KING%20%26%20QUEEN%20seharga%20Rp%20450.000.%20Bagaimana%20cara%20pembayarannya?" class="btn">Beli - Rp450.000</a>
-</div>
-
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h2>Rank Benefits</h2>
+    <h3 id="modalTitle"></h3>
+    <ul id="modalList"></ul>
+    <div class="close" onclick="closeModal()">Tutup</div>
+  </div>
 </div>
 
 <script>
-function toggleFeature(id) {
-  document.getElementById(id).classList.toggle("open");
+function openModal(rank, features) {
+  document.getElementById("modalTitle").innerText = rank;
+
+  let list = document.getElementById("modalList");
+  list.innerHTML = "";
+
+  features.forEach(f => {
+    let li = document.createElement("li");
+    li.innerText = f;
+    list.appendChild(li);
+  });
+
+  document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
 }
 </script>
 
