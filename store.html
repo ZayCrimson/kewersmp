@@ -20,33 +20,28 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 15px 20px;
-  border-bottom: 1px solid rgba(59,130,246,0.3);
-  background: rgba(5,10,25,0.5);
+  border-bottom: 1px solid rgba(59,130,246,0.4);
+  background: rgba(5,10,25,0.7);
   backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(59,130,246,0.3);
 }
 
 /* CONTAINER */
 .container {
-  text-align: center;
   padding: 20px;
+  text-align: center;
 }
 
-/* CARD TRANSPARAN */
+/* CARD */
 .card {
+  background: linear-gradient(145deg, rgba(10,20,45,0.95), rgba(5,8,20,0.95));
+  border-radius: 20px;
+  padding: 25px;
   margin: 25px auto;
-  max-width: 350px;
-  padding: 20px;
-  text-align: center;
-  backdrop-filter: blur(6px);
-  border-radius: 15px;
-}
-
-/* LOGO */
-.rank-logo {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 10px;
-  filter: brightness(0) invert(1); /* jadi putih dari hitam */
+  max-width: 400px;
+  border: 1px solid rgba(59,130,246,0.3);
+  box-shadow: 0 0 30px rgba(59,130,246,0.3),
+              inset 0 0 25px rgba(0,0,0,0.8);
 }
 
 /* BADGE */
@@ -56,19 +51,19 @@ body {
   margin-top: 5px;
 }
 
-/* PRICE BUTTON */
+/* PRICE */
 .price {
   margin-top: 15px;
   padding: 12px;
   border-radius: 10px;
-  background: rgba(59,130,246,0.2);
-  border: 1px solid rgba(59,130,246,0.4);
-  color: #60a5fa;
+  background: linear-gradient(45deg,#3b82f6,#60a5fa);
+  color: white;
   text-decoration: none;
   display: block;
+  font-weight: 600;
 }
 
-/* SEE FEATURE */
+/* TOGGLE */
 .toggle {
   margin-top: 10px;
   color: #9ca3af;
@@ -87,25 +82,74 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
+  z-index: 999;
 }
 
+/* KERTAS STYLE */
 .modal-content {
-  background: rgba(10,20,45,0.95);
-  padding: 20px;
-  border-radius: 15px;
+  position: relative;
   width: 90%;
-  max-width: 300px;
-  text-align: center;
+  max-width: 340px;
+  padding: 20px 20px 20px 40px;
+  border-radius: 12px;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.05) 0px,
+      rgba(255,255,255,0.05) 1px,
+      transparent 1px,
+      transparent 28px
+    ),
+    #0a0f25;
+
+  border: 1px solid rgba(59,130,246,0.4);
+  box-shadow: 0 0 40px rgba(59,130,246,0.4);
 }
 
+/* GARIS MERAH */
+.modal-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 25px;
+  width: 2px;
+  height: 100%;
+  background: rgba(239,68,68,0.5);
+}
+
+/* TEXT */
+.modal h2 {
+  margin: 0;
+}
+
+.modal h3 {
+  margin: 5px 0 10px;
+  color: #60a5fa;
+}
+
+/* LIST */
 .modal ul {
-  text-align: left;
+  list-style: none;
+  padding: 0;
 }
 
+.modal li {
+  margin-bottom: 6px;
+}
+
+.modal li::before {
+  content: "• ";
+  color: #3b82f6;
+}
+
+/* CLOSE */
 .close {
   margin-top: 10px;
-  color: #60a5fa;
+  text-align: right;
   cursor: pointer;
+  color: #60a5fa;
+  font-size: 13px;
 }
 </style>
 </head>
@@ -114,63 +158,66 @@ body {
 
 <!-- NAVBAR -->
 <div class="navbar">
-  <div>Kewer<span style="color:#3b82f6;">SMP</span></div>
+  <div style="display:flex; align-items:center; gap:10px;">
+    <img src="https://res.cloudinary.com/dyvfslvvh/image/upload/v1776409842/KewerSMP_SEASON_9__120363303029932613_g.us_20260417-140644_lkv37z.jpg"
+    style="width:40px;height:40px;border-radius:10px;box-shadow:0 0 15px rgba(59,130,246,0.8);">
+    <div>Kewer<span style="color:#3b82f6;">SMP</span></div>
+  </div>
   <div><a href="index.html" style="color:white;">🏠</a></div>
 </div>
 
 <div class="container">
-
 <h1>STORE</h1>
 
-<!-- VIP -->
+<!-- CARD TEMPLATE (ULANG SEMUA RANK) -->
+
 <div class="card">
-<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="rank-logo">
 <h2>VIP</h2>
 <div class="badge">Trial 30 Hari</div>
-
-<div class="toggle" onclick="openModal('VIP', [
-'3x Limit Claim',
-'6000 Limit Block',
-'5× sethome',
-'premium daily reward',
-'/feed',
-'/nick'
-])">See Features</div>
-
+<div class="toggle" onclick="openModal('VIP', ['3x Limit Claim','6000 Limit Block','5× sethome','premium daily reward','/feed','/nick'])">See Features</div>
 <a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20VIP%20seharga%20Rp%2015.000.%20Bagaimana%20cara%20pembayarannya?" class="price">Rp15.000</a>
 </div>
 
-<!-- PRO -->
 <div class="card">
-<img src="https://cdn-icons-png.flaticon.com/512/3135/3135673.png" class="rank-logo">
 <h2>PRO</h2>
 <div class="badge">Trial 30 Hari</div>
-
-<div class="toggle" onclick="openModal('PRO', [
-'8x Limit Claim',
-'8000 Limit Block',
-'10× sethome',
-'/heal',
-'/repair'
-])">See Features</div>
-
+<div class="toggle" onclick="openModal('PRO', ['8x Limit Claim','8000 Limit Block','10× sethome','/heal','/repair'])">See Features</div>
 <a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20PRO%20seharga%20Rp%2025.000.%20Bagaimana%20cara%20pembayarannya?" class="price">Rp25.000</a>
 </div>
 
-<!-- MASTER -->
 <div class="card">
-<img src="https://cdn-icons-png.flaticon.com/512/190/190406.png" class="rank-logo">
+<h2>DESERT</h2>
+<div class="badge">Trial 30 Hari</div>
+<div class="toggle" onclick="openModal('DESERT', ['10000 Limit Block','20× sethome','/fireball','Cosmetics'])">See Features</div>
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20DESERT%20seharga%20Rp%2050.000.%20Bagaimana%20cara%20pembayarannya?" class="price">Rp50.000</a>
+</div>
+
+<div class="card">
+<h2>LEGEND</h2>
+<div class="badge">Trial 30 Hari</div>
+<div class="toggle" onclick="openModal('LEGEND', ['50000 Limit Block','25× sethome','/fly','/jump'])">See Features</div>
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20LEGEND%20seharga%20Rp%2090.000.%20Bagaimana%20cara%20pembayarannya?" class="price">Rp90.000</a>
+</div>
+
+<div class="card">
+<h2>CACTUS</h2>
+<div class="badge">Trial 30 Hari</div>
+<div class="toggle" onclick="openModal('CACTUS', ['Unlimited Claim','30× sethome','All cosmetics'])">See Features</div>
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20CACTUS%20seharga%20Rp%20120.000.%20Bagaimana%20cara%20pembayarannya?" class="price">Rp120.000</a>
+</div>
+
+<div class="card">
 <h2>MASTER</h2>
 <div class="badge">Permanent</div>
-
-<div class="toggle" onclick="openModal('MASTER', [
-'Unlimited Claim',
-'50× sethome',
-'/ptime',
-'/tp'
-])">See Features</div>
-
+<div class="toggle" onclick="openModal('MASTER', ['Unlimited Claim','50× sethome','/ptime','/tp'])">See Features</div>
 <a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20MASTER%20seharga%20Rp%20150.000.%20Bagaimana%20cara%20pembayarannya?" class="price">Rp150.000</a>
+</div>
+
+<div class="card">
+<h2>KING & QUEEN</h2>
+<div class="badge">Permanent</div>
+<div class="toggle" onclick="openModal('KING & QUEEN', ['Unlimited Everything','/god','All cosmetics'])">See Features</div>
+<a href="https://wa.me/6289673735976?text=Halo%20Admin%20KewerSMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20KING%20%26%20QUEEN%20seharga%20Rp%20450.000.%20Bagaimana%20cara%20pembayarannya?" class="price">Rp450.000</a>
 </div>
 
 </div>
@@ -188,16 +235,13 @@ body {
 <script>
 function openModal(rank, features) {
   document.getElementById("modalTitle").innerText = rank;
-
   let list = document.getElementById("modalList");
   list.innerHTML = "";
-
   features.forEach(f => {
     let li = document.createElement("li");
     li.innerText = f;
     list.appendChild(li);
   });
-
   document.getElementById("modal").style.display = "flex";
 }
 
